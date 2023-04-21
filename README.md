@@ -124,5 +124,6 @@ $ exit
 
 ## Authors
 
-[![Ericfranzee]](https://github.com/ericfranzee)
-[![Alicecodes1]](https://github.com/alicecodes1)
+[Ericfranzee](https://github.com/ericfranzee)
+&
+[Alicecodes1](https://github.com/alicecodes1)
