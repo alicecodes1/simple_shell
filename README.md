@@ -54,8 +54,8 @@ _strcat.c -------------------------- combines two strings
 _strcmp.c -------------------------- determines whether two strings are similar
 _strcpy.c -------------------------- a string is copied
 _strdup.c -------------------------- a string that is duplicated
-_str_tok.c -------------------------- (custom) tokenizes user input and returns an array
-c_str_tok.c ------------------------- PATH is tokenized to include ":" as Null, and the current directory is checked.
+_str_tok.c ------------------------- (custom) tokenizes user input and returns an array
+c_str_tok.c ------------------------ PATH is tokenized to include ":" as Null, and the current directory is checked.
 get_line.c ------------------------- (custom) stores the user's entered input in a buffer.
 _which.c --------------------------- adds command to pathways, fleshes out pathways, returns match
 _cd.c ------------------------------ renames directories
