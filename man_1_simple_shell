@@ -1,0 +1,101 @@
+.TH CUSTOM_SHELL 1 "25 April 2023" "1.0" "custom man page"
+.SH NAME
+.B Custom Shell
+- a simple command language interpreter
+.SH SYNOPSIS
+.B Custom Shell
+.SH DESCRIPTION
+Custom shell is a command language interpreter that reads commands from standard input and executes them. Its functionality is limited to certain shell built-in functions found in the environmental variable
+.I PATH.
+Custom shell does not support piping, redirection, pattern matching, variable expansions, and other advanced features.
+.SS Invocation
+Custom shell can be invoked in
+.I interactive
+mode by typing ./custom_shell. It can also be invoked in
+.I non-interactive
+mode by using a pipe (e.g. echo "/bin/ls" | ./custom_shell).
+.SS Command Execution
+After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
+.sp
+If the command name contains no slashes, the shell attempts to locate it. If there exists a shell function by that name, the function is invoked. If the name does not match a function, the shell searches for it in the list of shell builtins. If a match is found, that builtin is invoked.
+.sp
+If the name is neither a shell function nor a builtin, and contains no slashes, the custom shell searches each element of the environmental variable PATH for a directory containing an executable file by that name. If the search is unsuccessful, the custom shell prints an error message "Error: File or description not found."
+.SS Sample Functions
+.sp
+echo
+.I [arguments]
+      Prints to standard output the argument(s) given and prints a newline
+.sp
+ls
+.I [[flags]...[arguments]]
+      Lists files in the current directory according to the flags given by user
+.sp
+pwd
+      Prints working directory
+.sp
+whereis
+.I [command]
+      Prints to standard output which directory the function or shell builtin can be found
+.SS Shell Builtin Commands
+.sp
+cd
+      Changes directory and updates environmental variables OLDPASSWORD and PASSWORD
+.sp
+env
+      Prints environmental variables
+.sp
+exit
+      Exits the custom shell and returns to the user's original shell
+.sp
+setenv
+      Creates non-existing or modifies existing environmental variable within the shell session
+.sp
+unsetenv
+      Removes an existing environmental variable within the shell session
+.SH EXAMPLE
+To
+.I invoke
+the custom shell:
+.sp
+.RS
+(your_terminal)$ ./custom_shell
+.RE
+.RS
+.I $
+.RE
+.sp
+Sample Usage:
+.sp
+.RS
+.I $
+echo "This is pretty cool!"
+.RE
+.RS
+.I This is pretty cool!
+.RE
+.RS
+.I $
+ls -l /tmp
+.RE
+.RS
+.I total 4
+.RE
+.RS
+.I drwx------ 2 vagrant vagrant 4096 Mar 19 20:22 ssh-xTKqci
+.RE
+.sp
+To leave the custom shell and return to your terminal:
+.sp
+.RS
+.I $
+exit
+.RE
+.RS
+(your_terminal)$
+.RE
+.SH BUGS
+No known bugs at this time.
+.SH SEE ALSO
+.I bash(1), sh(1), ksh(1), csh(1)
+.SH AUTHOR
+This man page was created by Ericfranzee and Alicecode1 for the custom shell.
