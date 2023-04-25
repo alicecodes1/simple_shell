@@ -28,8 +28,7 @@ size_t get_line(char **str)
 		}
 
 		/* copy what's read to buff into get_line's buffer */
-		if (t == 0)
-		/* malloc the 1st tim */
+		if (t == 0) /* malloc the 1st tim */
 		{
 			i++;
 			*str = malloc(sizeof(char) * i);
@@ -37,8 +36,7 @@ size_t get_line(char **str)
 			size = i;
 			t = 1;
 		}
-		else
-		/* _realloc via _strcat with each loop */
+		else /* _realloc via _strcat with each loop */
 		{
 			size += i;
 			*str = _strcat(*str, buff);
