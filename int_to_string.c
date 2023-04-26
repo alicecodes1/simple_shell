@@ -18,21 +18,21 @@ int numlen(int n)
 	return (count);
 }
 /**
- * int_to_string - turns an integer into a string
- * @number: integer
- * Return: returns the integer as a str. returns NULL if fail
+ * int_to_string - turns an integer into a str
+ * @number: int
+ * Return: returns the in as a str. returns NULL if fail
  */
 
 char *int_to_string(int number)
 {
-	int digits, tens, b = 0, t = 0, x;
+	int digits, tens, b = 0, h = 0, x;
 	char *res;
 
 	digits = number;
 	tens = 1;
 
 	if (number < 0)
-		t = 1;
+		h = 1;
 	res = malloc(sizeof(char) * (numlen(digits) + 2 + t));
 	if (res == NULL)
 		return (NULL);
