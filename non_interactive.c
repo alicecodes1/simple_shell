@@ -32,14 +32,14 @@ void non_interactive(list_t *env)
 	}
 	n_command = command;
 	command = c_ignore(command);
-	n_line = _str_tok(command, "\n"); /* tokenize each command string */
+	n_line = _str_tok(command, "\n");
 	if (n_command != NULL)
 		free(n_command);
 	n = 0;
-	while (n_line[n] != NULL)
+i	while (n_line[n] != NULL)
 	{
 		command_line_no++;
-		token = NULL; /* tokenize each commnd in array of commnds */
+		token = NULL;
 		token = _str_tok(n_line[n], " ");
 		exit_stat = built_in(token, env, command_line_no, n_line);
 		if (exit_stat)
