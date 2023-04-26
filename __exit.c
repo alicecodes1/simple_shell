@@ -3,51 +3,49 @@
 /**
  * c_atoi - custom atoi converts string to integer
  * @s: string
- * Return: number if successful, -1 if str contains a non-number
+ * Return: number if success, -1 if string contains non-numbers
  */
 int c_atoi(char *s)
 {
 	int i = 0;
-	unsigned int number = 0;
+	unsigned int num = 0;
 
 	while (s[i] != '\0')
 	{
-		if (s[i] >= '0' && s[i] <= '9')
-			/* calc number */
-			numb = numb * 10 + (s[i] - '0');
-		if (s[i] > '9' || s[i] < '0')
-			/* acct for non-numbers */
+		if (s[i] >= '0' && s[i] <= '9') /* calculate num */
+			num = num * 10 + (s[i] - '0');
+		if (s[i] > '9' || s[i] < '0') /* account for non-numbers */
 			return (-1);
 		i++;
 	}
-	return (numb);
+	return (num);
 }
 
 /**
- *__exit - frees user input and then exits main program with a value
- * @environment: bring in env variable to free at err
- * @number: bring in nth user commnd line input to print in err message*
- * @string: user's commnd into shell (e.g. "exit 99")
- * Return: 0 if success and 2 if fail
+ * __exit - frees user input and then exits main program with a value
+ * @str: user's command into shell (e.g. "exit 99")
+ * @env: bring in environmental variable to free at error
+ * @num: bring in nth user command line input to print in error message
+ * @command: bring in command to free
+ * Return: 0 if successful 2 if not successful
  */
-int __exit(char **str, list_t *env, int numb, char **comd)
+int __exit(char **str, list_t *env, int num, char **command)
 {
 	int e_value = 0;
 
-	if (string[1] != NULL)
-		/* if no value given after exit, return 0 */
+	if (str[1] != NULL) /* if no value given after exit, return 0 */
 		e_value = c_atoi(str[1]);
 
-	if (e_value == -1) /* if value given after exit is invalid, perr */
+	if (e_value == -1)
 	{
-		illegal_numb(str[1], numb, environment);
-		/* print err msg */
-		free_double_ptr(string);
+		illegal_number(str[1], num, env);
+		free_double_ptr(str);
 		return (2);
 	}
-	free_double_ptr(string); /* free user input be4 exiting program */
-	free_linked_list(environment);
-	if (commnd != NULL)
-		free_double_ptr(commnd);
+	free_double_ptr(str);
+	free_linked_list(env);
+	if (command != NULL)
+		free_double_ptr(command);
 	exit(e_value);
 }
+
