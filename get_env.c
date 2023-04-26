@@ -1,17 +1,17 @@
 #include "shell.h"
 
 /**
- * c_strdup - custom str duplication; which eliminate beginning bytes
+ * c_strdup - custom str duplication; which eliminate the b beginning bytes
  * @str: str to duplicate (e.g. env var PATH=/bin:/bin/ls)
- * @cs: numb of bytes to exclude (e.g. excludes "PATH=")
+ * @cs: num of bytes to exclude (e.g. excludes "PATH=")
  * Return: str (e.g. /bin:/bin/ls)
  */
 char *c_strdup(char *str, int cs)
 {
 	char *duplicate_str;
-	int t, length = 0;
+	int m, length = 0;
 
-	if (str == NULL) /* validate str input */
+	if (str == NULL)
 		return (NULL);
 
 	/* calc length + null terminator to malloc */
@@ -24,11 +24,11 @@ char *c_strdup(char *str, int cs)
 	if (duplicate_str == NULL)
 		return (NULL);
 
-	t = 0;
-	while (t < (length - cs))
+	m = 0;
+	while (m < (length - cs))
 	{
-		*(duplicate_str + t) = *(str + cs + t);
-		t++;
+		*(duplicate_str + m) = *(str + cs + m);
+		m++;
 	}
 	return (duplicate_str);
 }
