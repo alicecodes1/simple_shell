@@ -61,11 +61,11 @@ char **c_str_tok(char *str, char *delm)
 			j++;
 			si++;
 		}
-		toks[p][j] = '\0'; 
+		toks[p][j] = '\0';
 		p++;
 		si++;
 	}
-	toks[p] = NULL; 
+	toks[p] = NULL;
 	return (toks);
 }
 
