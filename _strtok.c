@@ -103,6 +103,6 @@ char **_str_tok(char *str, char *delm)
 		si++;
 	}
 	p++;
-	toks[p] = NULL; 
+	toks[p] = NULL;
 	return (toks);
 }
