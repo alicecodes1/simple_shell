@@ -5,7 +5,7 @@
  * @dest: str to be appended
  * @src: str to append
  * Return: concatenated str
- *  */
+ */
 char *c_strcat(char *dest, char *src)
 {
 	int len = 0;
