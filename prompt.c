@@ -97,7 +97,7 @@ int prompt(char **en)
 	char *command, *n_command, **token;
 
 	env = env_linked_list(en);
-	do{
+	do {
 		command_line_no++;
 		if (isatty(STDIN_FILENO)) /* reprompt if in interactive shell */
 			write(STDOUT_FILENO, "$ ", 2);
